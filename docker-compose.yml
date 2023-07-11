@@ -13,7 +13,7 @@ services:
       - /usr/share/nginx/html
     restart: always
     networks:
-      - shared
+      - external_network
 
   letsencrypt:
     image: jrcs/letsencrypt-nginx-proxy-companion
@@ -25,8 +25,8 @@ services:
       - nginx-proxy
     restart: always
     networks:
-      - shared
+      - external_network
 
 networks:
-  shared:
+  external_network:
     external: true
